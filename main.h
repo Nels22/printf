@@ -22,8 +22,24 @@
 #define SHORT 1
 #define LONG 2
 
+/**
+* struct convert - defines a structure for symbols and functions
+*
+* @sym: The operator
+* @f: The function associated
+*/
+struct convert
+{
+	char *sym;
+	int (*f)(va_list);
+};
+typedef struct convert conver_t;
+
+/*Main functions*/
 int _printf(const char *format, ...);
-unsigned int convert_di(va_list args, buffer_t *output,
-		unsigned char flags, int wid, int prec, unsigned char len);
+int print_char(va_list);
+int print_string(va_list);
+int print_percent(va_list);
+int parser(const char *format, conver_t f_list[], va_list arg_list);
 
 #endif /*_MAIN_H */
