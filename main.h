@@ -22,7 +22,7 @@
 #define SHORT 1
 #define LONG 2
 
-
+int _printf(const char *format, ...);
 unsigned int convert_di(va_list args, buffer_t *output,
 		unsigned char flags, int wid, int prec, unsigned char len);
 
