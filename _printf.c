@@ -1,45 +1,28 @@
-/**
- * _printf - Reproduce behavior of printf function
- * @format: format string
- * Return: value of printed chars
- */
+#include "main.h"
 
+/**
+ * _printf - a function that prints to the standard output, according
+ * to a specified format.
+ * @format: Any input string.
+ * Return: NUmber of characters printed.
+ */
 int _printf(const char *format, ...)
 {
-	va_list ap;
-	int sum = 0, i = 0;
-	int (*func)();
+	int output_chars;
+	conver_t f_list[] = {
+		{"c", print_char},
+		{"s", print_string},
+		{"%", print_percent},
+		{NULL, NULL}
+	};
+	va_list arg_list;
 
-	if (!format || (format[0] == '%' && format[1] == '\0'))
+	if (format == NULL)
 		return (-1);
-	va_start(ap, format);
 
-	while (format[i])
-	{
-		if (format[i] == '%')
-		{
-			if (format[i + 1] != '\0')
-				func = get_op(format[i + 1]);
-			if (func == NULL)
-			{
-				_putchar(format[i]);
-				sum++;
-				i++;
-			}
-			else
-			{
-				sum += func(ap);
-				i += 2;
-				continue;
-			}
-		}
-		else
-{
-					_putchar(format[i]);
-			sum++;
-			i++;
-		}
-	}
-	va_end(ap);
-	return (sum);
+	va_start(arg_list, format);
+
+	output_chars = parser(format, f_list, arg_list);
+	va_end(arg_list);
+	return (output_chars);
 }
