@@ -1,16 +1,16 @@
 #include "main.h"
 
-unsigned int manipulate_s(va_list args, buffer_t *output,
+unsigned int convert_s(va_list args, buffer_t *output,
 		unsigned char flags, int wid, int prec, unsigned char len);
-unsigned int manipulate_S(va_list args, buffer_t *output,
+unsigned int convert_S(va_list args, buffer_t *output,
 		unsigned char flags, int wid, int prec, unsigned char len);
-unsigned int manipulate_r(va_list args, buffer_t *output,
+unsigned int convert_r(va_list args, buffer_t *output,
 		unsigned char flags, int wid, int prec, unsigned char len);
 unsigned int convert_R(va_list args, buffer_t *output,
 		unsigned char flags, int wid, int prec, unsigned char len);
 
 /**
- * manipulate_s - A function that converts an argument to a string and
+ * convert_s - A function that converts an argument to a string and
  * stores it in a buffer contained in a struct.
  * @args: A va_list pointing to the argument to be converted.
  * @flags: Flag modifiers.
@@ -54,7 +54,7 @@ unsigned int convert_s(va_list args, buffer_t *output,
 }
 
 /**
- * manipulate_S - A functin that converts an argument to a string and
+ * convert_S - A functin that converts an argument to a string and
  *             stores it to a buffer contained in a struct.
  * @args: A va_list pointing to the argument to be converted.
  * @flags: Flag modifiers.
@@ -68,7 +68,7 @@ unsigned int convert_s(va_list args, buffer_t *output,
  * Description: Non-printable characteres (ASCII values < 32 or >= 127)
  *              are stored as \x followed by the ASCII code value in hex.
  */
-unsigned int manipulate_S(va_list args, buffer_t *output,
+unsigned int convert_S(va_list args, buffer_t *output,
 		unsigned char flags, int wid, int prec, unsigned char len)
 {
 	char *str, *null = "(null)", *hex = "\\x", zero = '0';
@@ -106,7 +106,7 @@ unsigned int manipulate_S(va_list args, buffer_t *output,
 }
 
 /**
- * manipulate_r - A function that reverses a string and stores it
+ * convert_r - A function that reverses a string and stores it
  * to a buffer contained in a struct.
  * @args: A va_list pointing to the string to be reversed.
  * @flags: Flag modifiers.
@@ -117,7 +117,7 @@ unsigned int manipulate_S(va_list args, buffer_t *output,
  *
  * Return: The number of bytes stored to the buffer.
  */
-unsigned int manipulate_r(va_list args, buffer_t *output,
+unsigned int convert_r(va_list args, buffer_t *output,
 		unsigned char flags, int wid, int prec, unsigned char len)
 {
 	char *str, *null = "(null)";
@@ -150,7 +150,7 @@ unsigned int manipulate_r(va_list args, buffer_t *output,
 }
 
 /**
- * manipulate_R - A function that converts a string to ROT13 and stores
+ * convert_R - A function that converts a string to ROT13 and stores
  * it to a buffer contained in a struct.
  * @args: A va_list pointing to the string to be converted.
  * @flags: Flag modifiers.
@@ -161,7 +161,7 @@ unsigned int manipulate_r(va_list args, buffer_t *output,
  *
  * Return: The number of bytes stored to the buffer.
  */
-unsigned int manipulate_R(va_list args, buffer_t *output,
+unsigned int convert_R(va_list args, buffer_t *output,
 		unsigned char flags, int wid, int prec, unsigned char len)
 {
 	char *alpha = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
