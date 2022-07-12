@@ -20,6 +20,13 @@ In this project we attempt to create our own printf, also known as the print fun
 * write (man 2 write)
 * va_arg (man 3 va_arg)
 
+# File Descriptions
+*  _printf.c: a function that produces output according to a specified format.
+* _putchar.c: a function that writes a character to stdout.
+* main.h: header file that contains all the function prototypes and macros.
+* man_3_printf: - manual page for the custom _printf function.
+
+
 #Contributors
 * Nelson Mandela (https://github.com/Nels22)
 * Elsie Akoth (https://github.com/Akoth-Otieno)
