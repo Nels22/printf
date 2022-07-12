@@ -111,7 +111,7 @@ int manage_width(va_list args, const char *modifier, char *index)
 }
 
 /**
- * manage_precision - a fu nction that matches a precision modifier to 
+ * manage_precision - a function that matches a precision modifier to
  * its corresponding value.
  * @args: A va_list of arguments.
  * @modifier: A pointer to a potential precision modifier.
@@ -163,7 +163,8 @@ int manage_precision(va_list args, const char *modifier, char *index)
 /**
  * manage_specifiers - A function that matches a conversion specifier
  * to its respective conversion function.
- * @specifier: A pointer to a potential conversion specifier.
+ * @char: any character
+ * @int: any integer value
  *
  * Return: If a conversion function is matched - a pointer to the function.
  *         Otherwise - NULL.
