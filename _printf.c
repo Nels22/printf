@@ -17,7 +17,7 @@ void cleanup(va_list args, buffer_t *output)
 }
 
 /**
- * run_print - Function that reads through the format string for _printf.
+ * run_printf - Function that reads through the format string for _printf.
  * @format: input string.
  * @output: A buffer_t struct containing a buffer.
  * @args: A va_list of arguments.
