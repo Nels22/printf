@@ -38,13 +38,13 @@ int run_printf(const char *format, va_list args, buffer_t *output)
 		if (*(format + i) == '%')
 		{
 			tmp = 0;
-			flags = handle_flags(format + i + 1, &tmp);
-			wid = handle_width(args, format + i + tmp + 1, &tmp);
-			prec = handle_precision(args, format + i + tmp + 1,
+			flags = manage_flags(format + i + 1, &tmp);
+			wid = manage_width(args, format + i + tmp + 1, &tmp);
+			prec = manage_precision(args, format + i + tmp + 1,
 					&tmp);
-			len = handle_length(format + i + tmp + 1, &tmp);
+			len = manage_length(format + i + tmp + 1, &tmp);
 
-			f = handle_specifiers(format + i + tmp + 1);
+			f = manage_specifiers(format + i + tmp + 1);
 			if (f != NULL)
 			{
 				i += tmp + 1;
@@ -65,7 +65,7 @@ int run_printf(const char *format, va_list args, buffer_t *output)
 }
 
 /**
- * _printf - Outputs a formatted string.
+ * _printf - Function that outputs a formatted string.
  * @format: Character string to print - may contain directives.
  *
  * Return: The number of characters printed.

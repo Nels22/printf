@@ -153,11 +153,11 @@ unsigned int convert_R(va_list args, buffer_t *output,
 >>>>>>> 89696b45eb56406ac969afd84473d4231bdcf8c3
 
 /* Handlers */
-unsigned char handle_flags(const char *flags, char *index);
-unsigned char handle_length(const char *modifier, char *index);
-int handle_width(va_list args, const char *modifier, char *index);
-int handle_precision(va_list args, const char *modifier, char *index);
-unsigned int (*handle_specifiers(const char *specifier))(va_list, buffer_t *,
+unsigned char manage_flags(const char *flags, char *index);
+unsigned char manage_length(const char *modifier, char *index);
+int manage_width(va_list args, const char *modifier, char *index);
+int manage_precision(va_list args, const char *modifier, char *index);
+unsigned int (*manage_specifiers(const char *specifier))(va_list, buffer_t *,
 <<<<<<< HEAD
 		unsigned char, int, int, unsigned char);
 
